@@ -24,11 +24,11 @@ Este proyecto es una aplicación web desarrollada con Flask que permite a los ve
 2. **Crear y activar un entorno virtual**
 
     ```python3 -m venv venv
-    source venv/bin/activate  # En Windows usa `venv\Scripts\activate`
+    ```source venv/bin/activate  # En Windows usa `venv\Scripts\activate`
 
 3. **Instalar las dependencias:**
 
-    ```pip install flask requests python-dotenv
+    ```pip install flask requests python-dotenv flask-login flask-wtf
 
 4. **Configurar las variables de entorno:**
 Crea un archivo .env en la raíz del proyecto con las siguientes variables (modifica con tus credenciales reales):
@@ -48,5 +48,6 @@ HUBSPOT_SECRET=tu_hubspot_secret
 6. **Acceder a la app:**
 
 Abre tu navegador web y navega a http://localhost:5000 para ver el formulario de subida de datos.
-Navega a http://localhost:5000/unified-info para ver la información unificada de los clientes.
+En http://localhost:5000/login poné usuario admin y pwd admin123 y te redirigirá a http://localhost:5000/unified-info
+
 
