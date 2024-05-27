@@ -96,7 +96,7 @@ def get_all_odoo_clients():
                 'method': 'search_read',
                 'args': [[]],  # Filtrar todos los registros
                 'kwargs': {
-                    'fields': ['name', 'phone', 'x_cuit', 'email', 'x_business_type'],  # Asegúrate de que 'x_cuit' y 'x_business_type' existen
+                    'fields': ['name', 'phone', 'x_cuit', 'email', 'x_business_type'],
                 },
             },
             'id': int(os.urandom(1)[0])
