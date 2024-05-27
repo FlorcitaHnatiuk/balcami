@@ -20,18 +20,26 @@ def submit():
     attachment = request.files.get('attachment')
 
     success_crms = []
-    try:
-        if 'odoo' in crms:
+    errors = []
+
+    if 'odoo' in crms:
+        try:
             upload_to_odoo(name, phone, cuit, email, business_type, attachment)
             success_crms.append('Odoo')
-        if 'hubspot' in crms:
+        except Exception as e:
+            errors.append(f'Error al subir a Odoo: {e}')
+
+    if 'hubspot' in crms:
+        try:
             upload_to_hubspot(name, phone, cuit, email, business_type, attachment)
             success_crms.append('HubSpot')
+        except Exception as e:
+            errors.append(f'Error al subir a HubSpot: {e}')
 
-        return jsonify({'status': 'success', 'message': 'Cliente creado correctamente', 'crms': success_crms})
-    except Exception as e:
-        print(f'Error al crear el cliente: {e}')
-        return jsonify({'status': 'error', 'message': 'Hubo un problema al crear el cliente'})
+    if errors:
+        return jsonify({'status': 'error', 'message': 'Hubo un problema al crear el cliente', 'errors': errors})
+
+    return jsonify({'status': 'success', 'message': 'Cliente creado correctamente', 'crms': success_crms})
 
 @app.route('/unified-info')
 def unified_info():
