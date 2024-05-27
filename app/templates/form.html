@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Subida de Clientes</title>
+    <title>Formulario de clientes</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Subida de Clientes</h1>
+        <h1>Formulario de clientes</h1>
         <form action="{{ url_for('submit') }}" method="post" enctype="multipart/form-data" class="form-container">
             <div class="form-group">
                 <label for="name">Nombre</label>
