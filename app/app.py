@@ -41,15 +41,5 @@ def unified_info():
 
     return render_template('unified_info.html', clients=all_clients)
 
-@app.route('/delete-client', methods=['DELETE'])
-def delete_client():
-    email = request.args.get('email')
-    print(f'Deleting client with email: {email}')
-    # Aquí podrías agregar la lógica para eliminar el cliente de los CRMs
-    return jsonify({'status': 'success', 'message': f'Client with email {email} deleted'})
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
 if __name__ == '__main__':
     app.run(debug=True)
