@@ -23,7 +23,11 @@ def upload_to_hubspot(name, phone, cuit, email, business_type, attachment):
         }
     }
     response = requests.post(url, headers=headers, json=data)
-    response.raise_for_status()
+    try:
+        response.raise_for_status()
+    except requests.exceptions.HTTPError as err:
+        print(f"Error al crear el cliente en HubSpot: {err.response.status_code} - {err.response.text}")
+        raise
     return response.json()
 
 def get_all_hubspot_clients():
