@@ -26,20 +26,3 @@ function filterTable() {
         }       
     }
 }
-
-function deleteClient(btn) {
-    let row = btn.parentNode.parentNode;
-    let name = row.getElementsByTagName('td')[0].innerText;
-    let email = row.getElementsByTagName('td')[3].innerText;
-
-    if (confirm(`Are you sure you want to delete client ${name}?`)) {
-        // Remove the row from the table
-        row.parentNode.removeChild(row);
-
-        // Call the server to delete the client (this part requires server-side implementation)
-        // fetch(`/delete-client?email=${email}`, { method: 'DELETE' })
-        //     .then(response => response.json())
-        //     .then(data => console.log(data))
-        //     .catch(error => console.error('Error:', error));
-    }
-}
