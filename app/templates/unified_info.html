@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unified Client Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles-info.css') }}">
+</head>
+<body>
+    <h1>Unified Client Information</h1>
+
+    <!-- Formulario de filtrado -->
+    <form id="filter-form">
+        <label for="filter-name">Filter by Name:</label>
+        <input type="text" id="filter-name" onkeyup="filterTable()">
+        <label for="filter-email">Filter by Email:</label>
+        <input type="text" id="filter-email" onkeyup="filterTable()">
+    </form>
+
+    <table id="client-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>CUIT</th>
+                <th>Email</th>
+                <th>Business Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+                <tr>
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.phone }}</td>
+                    <td>{{ client.cuit }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>{{ client.business_type }}</td>
+                    <td><button onclick="deleteClient(this)">Delete</button></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
