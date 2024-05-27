@@ -24,7 +24,6 @@
                 <th>CUIT</th>
                 <th>Email</th>
                 <th>Business Type</th>
-                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +34,6 @@
                     <td>{{ client.cuit }}</td>
                     <td>{{ client.email }}</td>
                     <td>{{ client.business_type }}</td>
-                    <td><button onclick="deleteClient(this)">Delete</button></td>
                 </tr>
             {% endfor %}
         </tbody>
